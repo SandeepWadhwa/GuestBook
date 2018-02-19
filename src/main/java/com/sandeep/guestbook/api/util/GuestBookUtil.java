@@ -5,13 +5,6 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-/**
- * Created with IntelliJ IDEA.
- * User: swadhwa6
- * Date: 2/18/18
- * Time: 11:06 AM
- * To change this template use File | Settings | File Templates.
- */
 public class GuestBookUtil {
 
     public static boolean isFilled(Object aObj) {

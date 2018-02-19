@@ -3,13 +3,6 @@ package com.sandeep.guestbook.api.entity;
 import javax.persistence.*;
 import java.util.Date;
 
-/**
- * Created with IntelliJ IDEA.
- * User: swadhwa6
- * Date: 2/17/18
- * Time: 12:23 PM
- * To change this template use File | Settings | File Templates.
- */
 @Entity
 @Table(name = "guest")
 @Access(value = AccessType.FIELD)

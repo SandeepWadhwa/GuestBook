@@ -14,13 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * Created with IntelliJ IDEA.
- * User: swadhwa6
- * Date: 2/17/18
- * Time: 12:27 PM
- * To change this template use File | Settings | File Templates.
- */
 @Service
 public class GuestServiceImpl implements GuestService {
 
@@ -34,6 +27,16 @@ public class GuestServiceImpl implements GuestService {
         guest.setComment(guestCreationRequest.getComment());
         guest.setCreationDateTime(GuestBookUtil.getTimeInUTC());
 
+        guestRepository.save(guest);
+
+    }
+
+    public void updateGuestInfo(GuestCreationRequest guestCreationRequest, long guestResourceId) {
+        Guest guest = new Guest();
+        guest.setId(guestResourceId);
+        guest.setGuestName(guestCreationRequest.getGuestName());
+        guest.setComment(guestCreationRequest.getComment());
+        guest.setCreationDateTime(GuestBookUtil.getTimeInUTC());
         guestRepository.save(guest);
 
     }
@@ -56,7 +59,7 @@ public class GuestServiceImpl implements GuestService {
 
     public List<GuestResponse> getGuestListByGuestName(String guestName) {
         List<GuestResponse> guestList = new ArrayList<GuestResponse>();
-        for (Guest guest : guestRepository.findByGuestName(guestName)) {
+        for (Guest guest : guestRepository.findByGuestName(guestName.toLowerCase())) {
             GuestResponse guestResponse = new GuestResponse();
             guestResponse.setGuestName(guest.getGuestName());
             guestResponse.setGuestId(guest.getId());
@@ -70,12 +73,8 @@ public class GuestServiceImpl implements GuestService {
 
     }
 
-    public List<GuestResponse> getGuestInfoById(String guestResourceId) {
-        List<GuestResponse> guestList = new ArrayList<GuestResponse>();
-        // There could be exception if string cannot be converted to Long ..
-        // should be catched
-        Long resourceId = new Long(guestResourceId);
-        Guest guest = guestRepository.findOne(resourceId);
+    public GuestResponse getGuestInfoById(long guestResourceId) {
+        Guest guest = guestRepository.findOne(guestResourceId);
         GuestResponse guestResponse = new GuestResponse();
         guestResponse.setGuestName(guest.getGuestName());
         guestResponse.setGuestId(guest.getId());
@@ -83,9 +82,12 @@ public class GuestServiceImpl implements GuestService {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         String strDate = dateFormat.format(guest.getCreationDateTime());
         guestResponse.setCreatedDateTime(strDate);
-        guestList.add(guestResponse);
+        return guestResponse;
 
-        return guestList;
+    }
+
+    public void deleteGuestInfoById(long guestResourceId) {
+        guestRepository.delete(guestResourceId);
 
     }
 }

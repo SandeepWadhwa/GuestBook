@@ -2,13 +2,6 @@ package com.sandeep.guestbook.api.entity;
 
 import java.util.HashMap;
 
-/**
- * Created with IntelliJ IDEA.
- * User: swadhwa6
- * Date: 2/18/18
- * Time: 3:51 PM
- * To change this template use File | Settings | File Templates.
- */
 public class GuestResponseWithError extends GuestResponse {
 
     private HashMap<String, String> responseError;

@@ -5,13 +5,6 @@ import com.sandeep.guestbook.api.entity.GuestResponse;
 
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- * User: swadhwa6
- * Date: 2/17/18
- * Time: 12:27 PM
- * To change this template use File | Settings | File Templates.
- */
 public interface GuestService {
 
     public void saveGuestInfo(GuestCreationRequest guestCreationRequest);
@@ -20,6 +13,10 @@ public interface GuestService {
 
     public List<GuestResponse> getGuestListByGuestName(String guestName);
 
-    public List<GuestResponse> getGuestInfoById(String guestResourceId);
+    public GuestResponse getGuestInfoById(long guestResourceId);
+
+    public void deleteGuestInfoById(long guestResourceId);
+
+    public void updateGuestInfo(GuestCreationRequest guestCreationRequest, long guestResourceId);
 }
 
