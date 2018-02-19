@@ -6,14 +6,6 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-/**
- * Created with IntelliJ IDEA.
- * User: swadhwa6
- * Date: 2/18/18
- * Time: 12:05 PM
- * To change this template use File | Settings | File Templates.
- */
-
 @Configuration
 public class GuestBookConfiguration {
 

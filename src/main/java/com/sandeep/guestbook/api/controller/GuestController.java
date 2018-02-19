@@ -8,8 +8,8 @@ import com.sandeep.guestbook.api.entity.GuestResponseWithError;
 import com.sandeep.guestbook.api.exception.GuestAPIException;
 import com.sandeep.guestbook.api.service.GuestService;
 import com.sandeep.guestbook.api.util.GuestBookUtil;
-import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -58,36 +58,33 @@ public class GuestController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<GuestResponse> getGuestInfoById(@PathVariable("id") long guestResourceId) throws GuestAPIException {
         GuestResponse guestResponse = guestService.getGuestInfoById(guestResourceId);
-        if (guestResponse.getGuestName() == null ) {
-            logger.error("Guest with id {} not found." +  guestResourceId);
+        if (guestResponse.getGuestName() == null) {
+            logger.error("Guest with id {} not found." + guestResourceId);
             return new ResponseEntity<GuestResponse>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<GuestResponse>(guestResponse, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/guestname" , method = RequestMethod.GET)
-    public ResponseEntity<List<GuestResponse>> getGuestListByGuestName( @RequestParam(value = "guestName", required = true) String guestName) throws GuestAPIException
-    {
+    @RequestMapping(value = "/guestname", method = RequestMethod.GET)
+    public ResponseEntity<List<GuestResponse>> getGuestListByGuestName(@RequestParam(value = "guestName", required = true) String guestName) throws GuestAPIException {
         List<GuestResponse> guestList = guestService.getGuestListByGuestName(guestName);
         HttpStatus httpStatus = HttpStatus.OK;
-        if ( guestList == null || guestList.isEmpty() )
-        {
+        if (guestList == null || guestList.isEmpty()) {
             GuestResponse guestResponse = new GuestResponse();
             HashMap<String, String> errorResponse = new HashMap<String, String>();
-            errorResponse.put( GuestBookErrorConst.NO_RECORDS_FOUND, GuestBookErrorConst.NO_GUESTS_FOUND );
-            guestList.add( new GuestResponseWithError( errorResponse, guestResponse ) );
+            errorResponse.put(GuestBookErrorConst.NO_RECORDS_FOUND, GuestBookErrorConst.NO_GUESTS_FOUND);
+            guestList.add(new GuestResponseWithError(errorResponse, guestResponse));
             httpStatus = HttpStatus.NOT_FOUND;
         }
-        return new ResponseEntity<List<GuestResponse>>( guestList, httpStatus );
+        return new ResponseEntity<List<GuestResponse>>(guestList, httpStatus);
     }
-
 
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity deleteGuestInfoById(@PathVariable("id") long guestResourceId) throws GuestAPIException {
         GuestResponse guestResponse = guestService.getGuestInfoById(guestResourceId);
-        if (guestResponse == null ) {
-            logger.error("Guest with id {} not found." +  guestResourceId);
+        if (guestResponse == null) {
+            logger.error("Guest with id {} not found." + guestResourceId);
             return new ResponseEntity<GuestResponse>(HttpStatus.NOT_FOUND);
         }
         guestService.deleteGuestInfoById(guestResourceId);
@@ -97,8 +94,8 @@ public class GuestController {
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity updateGuestInfo(@PathVariable("id") long guestResourceId, @RequestBody GuestCreationRequest guestCreationRequest) throws GuestAPIException {
         GuestResponse guestResponse = guestService.getGuestInfoById(guestResourceId);
-        if (guestResponse == null ) {
-            logger.error("Guest with id {} not found." +  guestResourceId);
+        if (guestResponse == null) {
+            logger.error("Guest with id {} not found." + guestResourceId);
             return new ResponseEntity<GuestResponse>(HttpStatus.NOT_FOUND);
         }
         if (!GuestBookUtil.isFilled(guestCreationRequest.getGuestName())) {

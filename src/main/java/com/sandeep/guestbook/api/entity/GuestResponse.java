@@ -1,12 +1,5 @@
 package com.sandeep.guestbook.api.entity;
 
-/**
- * Created with IntelliJ IDEA.
- * User: swadhwa6
- * Date: 2/18/18
- * Time: 11:02 AM
- * To change this template use File | Settings | File Templates.
- */
 public class GuestResponse {
 
     private long guestId;

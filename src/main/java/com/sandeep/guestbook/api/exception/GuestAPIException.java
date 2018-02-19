@@ -4,13 +4,6 @@ import org.springframework.http.HttpStatus;
 
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- * User: swadhwa6
- * Date: 2/17/18
- * Time: 1:43 PM
- * To change this template use File | Settings | File Templates.
- */
 public class GuestAPIException extends Exception {
 
     private HttpStatus m_status;
