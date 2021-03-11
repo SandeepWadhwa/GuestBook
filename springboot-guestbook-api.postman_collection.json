@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "4adce548-7280-4747-bced-afa8636c08c9",
+		"name": "springboot-guestbook-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post - Create Guest Entry",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"guestName\":\"Guest1\", \"comment\":\"Checked-on-02-Mar-2021 at 6 PM\" }"
+				},
+				"url": {
+					"raw": "http://localhost:8050/api/guests",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8050",
+					"path": [
+						"api",
+						"guests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get - All Guests List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8050/api/guests",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8050",
+					"path": [
+						"api",
+						"guests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get - Fetch Guest details using an {id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8050/api/guests/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8050",
+					"path": [
+						"api",
+						"guests",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete the Guest using {id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8050/api/guests/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8050",
+					"path": [
+						"api",
+						"guests",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": " Update any specific Guest detail using {id}",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"guestName\":\"GuestName_New\", \"comment\":\"Checked-on-02-Jul-2020 at 6 PM\" }"
+				},
+				"url": {
+					"raw": "http://localhost:8050/api/guests/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8050",
+					"path": [
+						"api",
+						"guests",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
