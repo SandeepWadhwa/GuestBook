@@ -1,4 +1,4 @@
-package com.sandeep.guestbook.api.entity;
+package com.sw.guestbook.api.entity;
 
 import java.util.HashMap;
 

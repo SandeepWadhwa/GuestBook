@@ -1,7 +1,15 @@
-package com.sandeep.guestbook.api.entity;
+package com.sw.guestbook.api.entity;
 
-import javax.persistence.*;
 import java.util.Date;
+
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "guest")

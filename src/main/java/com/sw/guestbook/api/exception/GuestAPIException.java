@@ -1,8 +1,8 @@
-package com.sandeep.guestbook.api.exception;
-
-import org.springframework.http.HttpStatus;
+package com.sw.guestbook.api.exception;
 
 import java.util.List;
+
+import org.springframework.http.HttpStatus;
 
 public class GuestAPIException extends Exception {
 

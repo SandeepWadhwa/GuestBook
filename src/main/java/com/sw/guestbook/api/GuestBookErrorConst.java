@@ -1,4 +1,4 @@
-package com.sandeep.guestbook.api;
+package com.sw.guestbook.api;
 
 public interface GuestBookErrorConst {
 

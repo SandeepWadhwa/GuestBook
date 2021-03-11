@@ -1,4 +1,4 @@
-package com.sandeep.guestbook.api.util;
+package com.sw.guestbook.api.util;
 
 import java.util.Calendar;
 import java.util.Date;

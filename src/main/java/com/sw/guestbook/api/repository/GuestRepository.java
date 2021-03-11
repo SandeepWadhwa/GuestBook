@@ -1,9 +1,10 @@
-package com.sandeep.guestbook.api.repository;
-
-import com.sandeep.guestbook.api.entity.Guest;
-import org.springframework.data.repository.CrudRepository;
+package com.sw.guestbook.api.repository;
 
 import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.sw.guestbook.api.entity.Guest;
 
 public interface GuestRepository extends CrudRepository<Guest, Long> {
 

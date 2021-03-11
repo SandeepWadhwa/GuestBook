@@ -1,9 +1,9 @@
-package com.sandeep.guestbook.api.service;
-
-import com.sandeep.guestbook.api.entity.GuestCreationRequest;
-import com.sandeep.guestbook.api.entity.GuestResponse;
+package com.sw.guestbook.api.service;
 
 import java.util.List;
+
+import com.sw.guestbook.api.entity.GuestCreationRequest;
+import com.sw.guestbook.api.entity.GuestResponse;
 
 public interface GuestService {
 
